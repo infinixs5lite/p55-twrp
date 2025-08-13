@@ -1,0 +1,35 @@
+#<src>                         <mnt_point>   <type>  <mnt_flags and options>                              <fs_mgr_flags>
+/dev/block/by-name/metadata 	/metadata		ext4		noatime,nosuid,nodev,discard														wait,check,formattable
+/dev/block/by-name/userdata 	/data 			f2fs		noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt				wait,check,formattable,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
+/dev/block/by-name/misc       /misc		  	emmc		defaults	                                              defaults
+/dev/block/by-name/tranfs     /cache			ext4		noatime,nosuid,nodev,discard	                          wait,check,formattable
+
+# Core Partition (erofs)
+system		  		/system		  	erofs		ro																	wait,slotselect,logical,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+vendor		  		/vendor		  	erofs		ro																	wait,slotselect,logical
+product		  		/product	  	erofs		ro																	wait,slotselect,logical
+system_ext			/system_ext		erofs		ro																	wait,slotselect,logical,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+
+# Core Patition (ext4)
+system	  			/system		  	ext4		ro																	wait,slotselect,logical,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+vendor			  	/vendor	  		ext4		ro																	wait,slotselect,logical
+product	  	 		/product	  	ext4		ro																	wait,slotselect,logical
+system_ext			/system_ext		ext4		ro																	wait,slotselect,logical,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+
+# Transsion Partition (erofs)
+tr_mi			    	/tr_mi		  	erofs		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_theme	   		/tr_theme 		erofs		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_region		  	/tr_region		erofs		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_company			/tr_company		erofs		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_carrier			/tr_carrier		erofs		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_product			/tr_product		erofs		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_preload			/tr_preload		erofs		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+
+# Transsion Partition (ext4)
+tr_mi			    	/tr_mi		  	ext4		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_theme	   		/tr_theme 		ext4		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_region		  	/tr_region		ext4		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_company			/tr_company		ext4		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_carrier			/tr_carrier		ext4		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_product			/tr_product		ext4		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail
+tr_preload			/tr_preload		ext4		ro																	wait,slotselect,logical,avb_keys=/vendor/etc/tran_avb.pubkey,nofail

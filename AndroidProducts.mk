@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_itel-P661N.mk
+    $(LOCAL_DIR)/twrp_P661N.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_itel-P661N-user \
-    omni_itel-P661N-userdebug \
-    omni_itel-P661N-eng
+    twrp_P661N-user \
+    twrp_P661N-userdebug \
+    twrp_P661N-eng
